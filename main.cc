@@ -18,9 +18,10 @@ int main() {
   vector<char> lexemes;
   string fileName;
   cout << "Please enter your input file name(include .txt): ";
-  cin >> fileName;
+  getline(cin, fileName);
   while (true) {
   ifstream inFile(fileName);
+
   if (inFile.is_open()) {
   char c;
   while(inFile.get(c)) {
@@ -30,7 +31,7 @@ int main() {
   break;
   } else {
     cout << "No file found, please re-enter your input file name(include .txt): ";
-    cin >> fileName;
+    getline(cin, fileName);
   }
   }
 
@@ -105,7 +106,8 @@ int curState = 1;
   }
     outFile.close();
   }
-  cout << "Output.txt has been generated";
+  cout << "Output.txt file has been generated under the same folder";
+  cin.get();
   return 0;
 }
 
