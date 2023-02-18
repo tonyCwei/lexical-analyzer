@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <windows.h>
 #include <vector>
 #include <string>
 #include "Dictionary.h"
@@ -14,13 +15,25 @@ void print(vector<pair<string, string>> answer) {
 }
 
 int main() {
-  char c;
   vector<char> lexemes;
-  ifstream inFile("input.txt");
+  string fileName;
+  cout << "Please enter your input file name(include .txt): ";
+  cin >> fileName;
+  while (true) {
+  ifstream inFile(fileName);
+  if (inFile.is_open()) {
+  char c;
   while(inFile.get(c)) {
     lexemes.push_back(c);
   }
   inFile.close();
+  break;
+  } else {
+    cout << "No file found, please re-enter your input file name(include .txt): ";
+    cin >> fileName;
+  }
+  }
+
 
   Dictionary myDict; 
   Solution mySolution;
@@ -79,11 +92,11 @@ int curState = 1;
   
  }
   
-  cout << "TOKEN" << "        " << "LEXEME"<< "\n";
-  print(answer);
+  // cout << "TOKEN" << "        " << "LEXEME"<< "\n";
+  // print(answer);
 
 
-  ofstream outFile(string("output.txt"));
+  ofstream outFile(string("Output.txt"));
   if (outFile.is_open()) {
         
   outFile << "TOKEN" << "           " << "LEXEME"<< "\n";
@@ -92,6 +105,7 @@ int curState = 1;
   }
     outFile.close();
   }
+  cout << "Output.txt has been generated";
   return 0;
 }
 
