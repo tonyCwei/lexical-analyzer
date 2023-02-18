@@ -7,7 +7,7 @@ class Dictionary
     private:
      unordered_set<string> keywords {"while", "if", "fi", "else", "return", "put", "get", "int", "endif", "function", "int", "bool", "real",  };
     
-    unordered_set<char> separetors {'(', ')', '{' , '}', ';', '#'};
+    unordered_set<char> separators {'(', ')', '{' , '}', ';', '#'};
     
     unordered_set<char> operators  {'<' , '>', '+', '-', '*', '/', '=', '!'};
 
@@ -17,7 +17,7 @@ public:
      return (keywords.find(str) != keywords.end());
 }
     bool isSep(char c) {
-     return (separetors.find(c) != separetors.end());
+     return (separators.find(c) != separators.end());
 }
    
       bool isOpr(char c) {
