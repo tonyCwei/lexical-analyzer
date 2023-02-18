@@ -16,10 +16,11 @@ void print(vector<pair<string, string>> answer) {
 int main() {
   char c;
   vector<char> lexemes;
-  ifstream myFile("input.txt");
-  while(myFile.get(c)) {
+  ifstream inFile("input.txt");
+  while(inFile.get(c)) {
     lexemes.push_back(c);
   }
+  inFile.close();
 
   Dictionary myDict; 
   Solution mySolution;
@@ -80,8 +81,17 @@ int curState = 1;
   
   cout << "TOKEN" << "        " << "LEXEME"<< "\n";
   print(answer);
-  //cout << answer[answer.size()- 1].second << "\n";
 
+
+  ofstream outFile(string("output.txt"));
+  if (outFile.is_open()) {
+        
+  outFile << "TOKEN" << "           " << "LEXEME"<< "\n";
+  for (pair<string, string> kvpair : answer) {
+    outFile << kvpair.first << "           " << kvpair.second << "\n";
+  }
+    outFile.close();
+  }
   return 0;
 }
 
