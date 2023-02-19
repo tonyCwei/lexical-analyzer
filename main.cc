@@ -107,15 +107,17 @@ bool isComment = false;
 
 
   ofstream outFile(string("Output.txt"));
-  if (outFile.is_open()) {
-        
+  if (outFile.is_open()) {       
   outFile << "TOKEN" << "           " << "LEXEME"<< "\n";
   for (pair<string, string> kvpair : answer) {
     outFile << kvpair.first << "           " << kvpair.second << "\n";
   }
     outFile.close();
+    cout << "Output.txt file has been generated under the same folder";
+  } else {
+    cout << "Error, Output.txt file was not generated";
   }
-  cout << "Output.txt file has been generated under the same folder";
+  
   cin.get();
   return 0;
 }
