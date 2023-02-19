@@ -1,0 +1,24 @@
+]This is test2
+
+while (a  b) {
+if (c3 == 2.5.5) {
+    int 3a = 3;
+    real a3a = 2.5;
+ }
+} 
+endif;
+
+
+real a3aaa = 6.564;
+if ( a3ab  3) {
+    int test = 5;
+} else {
+    put(3)
+    bool is.true;
+    bool isTrue;
+}
+fi;
+
+return 5;
+return 6
+endif [
