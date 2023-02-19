@@ -1,3 +1,17 @@
+]* this is not comment
+
+this is not comment *]
+
+this is not comment ]*
+
+[ * this is not comment *]
+
+[* this is comment *]
+
+
+
+
+
 while (a < b) {
 if (c3 == 2.5.5) {
     int 3a = 3;
@@ -19,4 +33,17 @@ fi;
 
 return 5;
 return 6;
+return 7;
 
+[* this is sample *[
+ closing comment now *]
+
+*] this is NOT a comment  
+
+return 8;    
+
+[* this starts a comment but did not close it
+
+so all things should be ignored
+
+return 9; 

@@ -7,12 +7,12 @@
 #include "Solution.h"
 using namespace std;
 
-void print(vector<pair<string, string>> answer) {
-  if (answer.empty()) {cout << "empty" << "\n";}
-  for (pair<string, string> kvpair : answer) {
-    cout << kvpair.first << "         " << kvpair.second << "\n";
-  }
-}
+// void print(vector<pair<string, string>> answer) {
+//   if (answer.empty()) {cout << "empty" << "\n";}
+//   for (pair<string, string> kvpair : answer) {
+//     cout << kvpair.first << "         " << kvpair.second << "\n";
+//   }
+// }
 
 int main() {
   vector<char> lexemes;
@@ -40,20 +40,31 @@ int main() {
   Solution mySolution;
   vector<pair<string, string>> answer;
   
+
 string word;
 int curState = 1;
- for (int i = 0; i < lexemes.size(); i++) {
-  
+bool isComment = false;
+
+  for (int i = 0; i < lexemes.size(); i++) {
   char c = lexemes[i];
-  //cout<< c << "\n";
-  bool isTerm = c == ' ' || c == '\n' || myDict.isOpr(c) || myDict.isSep(c);
   
+  // if [* is not closed by *], anything after [* will be ignored 
+  isComment = c == '['  && lexemes[i+1] == '*' ? true : isComment;
+  if (isComment) {
+    isComment = c == ']' && lexemes[i-1] == '*' ? false : isComment;  
+    continue;
+  }
+  
+
+ // if Not Comment, do following
+  bool isTerm = c == ' ' || c == '\n' || myDict.isOpr(c) || myDict.isSep(c);
   if (!isTerm) {
     word += c;   
     curState = mySolution.lexer(c,curState);
   } else {        
     switch(curState) {
         case 1:
+        // nothing happens, state 1 is q0
         break;
 
         case 2:
@@ -83,14 +94,12 @@ int curState = 1;
       
       if (myDict.isOpr(c)) {
             answer.push_back(make_pair("OPERATOR", string(1,c)));
-          } else if (myDict.isSep(c)) {
+      } else if (myDict.isSep(c)) {
             answer.push_back(make_pair("SEPARETOR", string(1,c)));
-          }
-
+      }
      curState = 1;
      word = "";
   }
-  
  }
   
   // cout << "TOKEN" << "        " << "LEXEME"<< "\n";
@@ -112,39 +121,5 @@ int curState = 1;
 }
 
 
-// int main() {
-//   string myWord;
-//   string finalRead;
-//   ifstream myFile("input.txt");
-//   Dictionary myDict; 
-//   vector<pair<string, string>> answer;
-//   vector<string> lexemes;
- 
-//   while(myFile >> myWord) {  
-//     string lexeme; 
-//     bool isComment=false;
-//     for (int i = 0; i < myWord.size(); i++) {
-//     char c = myWord[i];   
-//     if ((!myDict.isSep(c) && !myDict.isOpr(c)) && (isalpha(c) || isdigit(c)) ) {
-//       lexeme.push_back(c);
-//     }  
-//     if (myDict.isSep(c) || myDict.isOpr(c)) {
-//       if(lexeme != "") {
-//         lexemes.push_back(lexeme);
-//         lexeme = "";
-//         }
-//       string sepop = string(1,c);
-//       lexemes.push_back(sepop);
-//     } else if (i == myWord.size() - 1){
-//       lexemes.push_back(lexeme);
-//     }
-//   }  
-//   }
-  
-//   for (string word : lexemes) {
-//     cout << word << "\n";
-//   }
 
-//   return 0;
-// }
 
