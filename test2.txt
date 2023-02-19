@@ -1,5 +1,8 @@
 ]This is test2
 
+[this is not comment]
+[* this is comment*]
+
 while (a  b) {
 if (c3 == 2.5.5) {
     int 3a = 3;
