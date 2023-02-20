@@ -83,10 +83,15 @@ bool isComment = false;
 
         case 4:
         // real
-        answer.push_back(make_pair("REAL", word));
+        answer.push_back(make_pair("NON-TOKEN", word)); 
         break;
 
         case 5:
+        //non-token
+        answer.push_back(make_pair("REAL", word));
+        break;
+
+        case 6:
         //non-token
         answer.push_back(make_pair("NON-TOKEN", word)); 
         break;

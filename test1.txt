@@ -16,6 +16,8 @@ while (a < b) {
 if (c3 == 2.5.5) {
     int 3a = 3;
     real a3a = 2.5;
+    real b = .
+    real c = 2.
  }
 } 
 endif;
@@ -31,7 +33,7 @@ if ( a3ab < 3) {
 }
 fi;
 
-return 5;
+return .5;
 return 6;
 return 7;
 
