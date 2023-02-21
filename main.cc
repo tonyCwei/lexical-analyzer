@@ -7,12 +7,6 @@
 #include "Solution.h"
 using namespace std;
 
-// void print(vector<pair<string, string>> answer) {
-//   if (answer.empty()) {cout << "empty" << "\n";}
-//   for (pair<string, string> kvpair : answer) {
-//     cout << kvpair.first << "         " << kvpair.second << "\n";
-//   }
-// }
 
 int main() {
   vector<char> lexemes;
@@ -82,12 +76,12 @@ bool isComment = false;
         break;
 
         case 4:
-        // real
+        // possible start of a read
         answer.push_back(make_pair("NON-TOKEN", word)); 
         break;
 
         case 5:
-        //non-token
+        //real
         answer.push_back(make_pair("REAL", word));
         break;
 
@@ -107,9 +101,6 @@ bool isComment = false;
   }
  }
   
-  // cout << "TOKEN" << "        " << "LEXEME"<< "\n";
-  // print(answer);
-
 
   ofstream outFile(string("Output.txt"));
   if (outFile.is_open()) {       
@@ -122,7 +113,6 @@ bool isComment = false;
   } else {
     cout << "Error, Output.txt file was not generated";
   }
-  
   cin.get();
   return 0;
 }

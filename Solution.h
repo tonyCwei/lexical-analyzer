@@ -30,7 +30,6 @@ private:
 
 
 
-    /* data */
 public:
   
 
@@ -45,12 +44,7 @@ public:
         newState = DFSM[curState][2];
     }
     return newState;
-
   }
-
-
-
-
 };
 
 
