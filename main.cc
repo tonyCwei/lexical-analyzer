@@ -51,7 +51,8 @@ int main() {
 
   ofstream outFile(string("Output.txt"));
   if (outFile.is_open()) {       
-  outFile << "TOKEN" << "           " << "LEXEME"<< "\n";
+  outFile << "TOKEN" << "              " << "LEXEME"<< "\n";
+  outFile << "----------------------------------"<< "\n";
   for (pair<string, string> kvpair : answer) {
     outFile << kvpair.first << "           " << kvpair.second << "\n";
   }
