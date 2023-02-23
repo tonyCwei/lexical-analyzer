@@ -5,7 +5,7 @@ using namespace std;
 class Dictionary
 {
 private:
-    unordered_set<string> keywords {"while", "if", "fi", "else", "return", "put", "get", "int", "endif", "function", "int", "bool", "real",  };
+    unordered_set<string> keywords {"while", "if", "fi", "else", "return", "put", "get", "int", "endif", "function", "int", "bool", "real"};
     
     unordered_set<char> separators {'(', ')', '{' , '}', '[', ']', ';', '#'};
     

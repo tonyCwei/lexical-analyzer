@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <vector>
 #include <string>
-#include "Dictionary.h"
 #include "Solution.h"
 using namespace std;
 
@@ -29,78 +28,26 @@ int main() {
   }
   }
 
-
-  Dictionary myDict; 
   Solution mySolution;
   vector<pair<string, string>> answer;
-  
 
-string word;
-int curState = 1;
-bool isComment = false;
+  string lexeme;
+  int curState = 1;
+  bool isComment = false;
 
   for (int i = 0; i < lexemes.size(); i++) {
-  char c = lexemes[i];
-  
-  // if [* is not closed by *], anything after [* will be ignored 
-  isComment = c == '['  && lexemes[i+1] == '*' ? true : isComment;
-  if (isComment) {
-    isComment = c == ']' && lexemes[i-1] == '*' ? false : isComment;  
-    continue;
+     char c = lexemes[i];
+     // if [* is not closed by *], anything after [* will be ignored 
+     isComment = c == '['  && lexemes[i+1] == '*' ? true : isComment;
+     if (isComment) {
+     isComment = c == ']' && lexemes[i-1] == '*' ? false : isComment;  
+     continue;
+     }
+     // if Not Comment, do following
+     lexeme += c;
+     mySolution.Lexer(c, lexeme, curState, answer);
   }
-  
 
- // if Not Comment, do following
-  bool isTerm = c == ' ' || c == '\n' || myDict.isOpr(c) || myDict.isSep(c);
-  if (!isTerm) {
-    word += c;   
-    curState = mySolution.lexer(c,curState);
-  } else {        
-    switch(curState) {
-        case 1:
-        // nothing happens, state 1 is q0
-        break;
-
-        case 2:
-         // id
-         if (myDict.isKeyword(word)) {
-          answer.push_back(make_pair("KEYWORD", word));
-         } else {
-         answer.push_back(make_pair("IDENTIFIER", word)); 
-         }
-        break;
-
-        case 3:
-          // int
-          answer.push_back(make_pair("INTEGAR", word));
-        break;
-
-        case 4:
-        // possible start of a read
-        answer.push_back(make_pair("NON-TOKEN", word)); 
-        break;
-
-        case 5:
-        //real
-        answer.push_back(make_pair("REAL", word));
-        break;
-
-        case 6:
-        //non-token
-        answer.push_back(make_pair("NON-TOKEN", word)); 
-        break;
-    }
-      
-      if (myDict.isOpr(c)) {
-            answer.push_back(make_pair("OPERATOR", string(1,c)));
-      } else if (myDict.isSep(c)) {
-            answer.push_back(make_pair("SEPARETOR", string(1,c)));
-      }
-     curState = 1;
-     word = "";
-  }
- }
-  
 
   ofstream outFile(string("Output.txt"));
   if (outFile.is_open()) {       
