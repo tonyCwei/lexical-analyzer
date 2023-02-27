@@ -18,7 +18,8 @@ private:
 // Accept  =    3  |   3     4    5
 // Accept  =    4  |   3     4    5
 // Nontoken=    5  |   5     5    5 
-   unordered_map<int, vector<int>> idDFSM = {
+   unordered_map<int, vector<int>> idDFSM = //every initial state within the dfsm and its following state depending on the order pushed in.
+   {
     {1, {2, 5, 5}},
     {2, {3, 4, 5}},
     {3, {3, 4, 5}},
@@ -133,31 +134,34 @@ public:
 
   
   
-  void Lexer(char c, string &lexeme, int &curState, vector<pair<string, string>> &answer) {
-    bool isTerm = c == ' ' || c == '\n' || myDict.isOpr(c) || myDict.isSep(c);
-    bool potentialId = isalpha(lexeme[0]);
-    bool potentialNum = isdigit(lexeme[0]) || lexeme[0] == '.';
+  void Lexer(char c, string &lexeme, int &curState, vector<pair<string, string>> &answer)//input from the main.cc
+  
+  {
+    bool isTerm = c == ' ' || c == '\n' || myDict.isOpr(c) || myDict.isSep(c);//bool c is equal to three cases, either a space, an end line, or is equaled to
+    // a term provided by the dictionary
+    bool potentialId = isalpha(lexeme[0]); // check is the position in the string lexeme is a alphabetic letter
+    bool potentialNum = isdigit(lexeme[0]) || lexeme[0] == '.'; //boolean check to see if the character is either a number or a '.'
     
-    if (!isTerm) {        
-       if (potentialId) {
-       idLexer(c, curState);
+    if (!isTerm) {        // instructions if the character is a defined term
+       if (potentialId) {// but is a alphabetic character
+       idLexer(c, curState);//call function to find what state the machine is in
        }
        
-       if(potentialNum) {
+       if(potentialNum)//if it is a number, what state is given in our lexer {
         numLexer(c, curState);
        }
 
-    } else {
-      if (potentialId) {
-        idHandler(c, lexeme, curState, answer);
+    } else {//otherwise
+      if (potentialId)//check if it is a potential alphabetic id {
+        idHandler(c, lexeme, curState, answer);//check function
       }
 
-      if (potentialNum) {
-        numHandler(c, lexeme, curState, answer);
+      if (potentialNum)//or if potention number {
+        numHandler(c, lexeme, curState, answer);//check the number handler
       }
-     addSepOpr(c, answer);
+     addSepOpr(c, answer);//add the c and changed answer to the seperator/operator function
      curState = 1;
-     lexeme = "";
+     lexeme = "";//the string of lexeme at current position is wiped.
      }
   }
 };
