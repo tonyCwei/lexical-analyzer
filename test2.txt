@@ -3,7 +3,7 @@
 [this is not comment]
 [* this is comment*]
 
-while (a  b) {
+ while (a  b) {
 if (c3 == 2.5.5) {
     int 3a = 3;
     real a3a = 2.5;
@@ -11,6 +11,10 @@ if (c3 == 2.5.5) {
 } 
 endif;
 
+#
+3a = 3 + 5;
+a3a = 8-3;
+c = 10*3; 
 
 real a3aaa = 6.564;
 if ( a3ab  3) {

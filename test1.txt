@@ -13,11 +13,12 @@ this is not comment ]*
 
 
 while (a < b) {
-if (c3 == 2.5.5) {
+if (c3 != 2.5.5) {
     int 3a = 3;
     real a3a = 2.5;
     real b = .
     real c = 2.
+    
  }
 } 
 endif;
