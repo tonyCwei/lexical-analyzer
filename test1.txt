@@ -1,52 +1,6 @@
-]* this is not comment
-
-this is not comment *]
-
-this is not comment ]*
-
-[ * this is not comment *]
-
-[* this is comment *]
-
-
-
-
-
-while (a < b) {
-if (c3 != 2.5.5) {
-    int 3a = 3;
-    real a3a = 2.5;
-    real b = .
-    real c = 2.
-    
- }
-} 
-endif;
-
-
-real a3aaa = 6.564;
-if ( a3ab < 3) {
-    int test = 5;
-} else {
-    put(3)
-    bool is.true;
-    bool isTrue;
-}
-fi;
-
-return .5;
-return 6;
-return 7;
-
-[* this is sample *[
- closing comment now *]
-
-*] this is NOT a comment  
-
-return 8;    
-
-[* this starts a comment but did not close it
-
-so all things should be ignored
-
-return 9; 
+int a = 5;
+real b = 6.5;
+while if fi else return put get int 
+endif function int bool real
+() {} [] #
+< > + - * / = !

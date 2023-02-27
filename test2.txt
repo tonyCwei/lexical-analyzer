@@ -1,31 +1,21 @@
-]This is test2
-
-[this is not comment]
-[* this is comment*]
-
- while (a  b) {
-if (c3 == 2.5.5) {
-    int 3a = 3;
-    real a3a = 2.5;
+[*This is test2*]
+ while (a < b) {
+if (c3 == 2.5) {
+    int a = 3;
+    real b = 2.5;
  }
 } 
 endif;
-
+  real c = .5;
 #
 3a = 3 + 5;
 a3a = 8-3;
 c = 10*3; 
 
 real a3aaa = 6.564;
-if ( a3ab  3) {
+if ( a3ab > 3) {
     int test = 5;
 } else {
-    put(3)
-    bool is.true;
-    bool isTrue;
+    put(3);
 }
-fi;
 
-return 5;
-return 6
-endif [

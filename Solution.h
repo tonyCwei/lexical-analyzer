@@ -1,4 +1,4 @@
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <cctype>
 #include <string>
@@ -18,7 +18,7 @@ private:
 // Accept  =    3  |   3     4    5
 // Accept  =    4  |   3     4    5
 // Nontoken=    5  |   5     5    5 
-   map<int, vector<int>> idDFSM = {
+   unordered_map<int, vector<int>> idDFSM = {
     {1, {2, 5, 5}},
     {2, {3, 4, 5}},
     {3, {3, 4, 5}},
@@ -37,7 +37,7 @@ private:
 // Real    =    5  |   5     7    7
 // Real    =    6  |   6     7    7
 // NonToken=    7  |   7     7    7 
-   map<int, vector<int>> numDFSM = {
+   unordered_map<int, vector<int>> numDFSM = {
     {1, {2, 3, 7}},
     {2, {2, 4, 7}},
     {3, {5, 7, 7}},

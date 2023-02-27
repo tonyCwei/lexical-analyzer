@@ -1,5 +1,4 @@
 [* this is comment*]
-
 function getNum() {
  int a = 5;
  int b = 10;
@@ -8,15 +7,21 @@ function getNum() {
  if ( c >= 0.5) {
   return c;
 } else {
-  return 2.3.5
+  return c
 }
-
- endif;
-
+endif;
 }
-
-
+ 
+real 3a = 2.5.6;
+bool isReal;
+bool is.Real;
+real a3aa = .5.6
 get ( int b);
 put (bool isReal);
 
 [* this is comment*]
+*] this is NOT a comment  
+return 8;    
+[* this starts a comment but did not close it
+so all things should be ignored
+return 9; 
