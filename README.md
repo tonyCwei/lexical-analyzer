@@ -11,6 +11,7 @@ Sample output:
 
 | token  | lexeme | 
 |------|-----|
+keyword      |                     while      |
 separator      |                     (      |      
 identifier             |              fahr  |
 operator               |              <= |
